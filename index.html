@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F6F9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="estudy">
+<title>estudy 手机版</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./style.css">
+<script defer src="./data.js"></script>
+<script defer src="./engine.js"></script>
+<script defer src="./app.js"></script>
+<script defer src="./pwa.js"></script>
+</head>
+<body>
+<header class="top"><div class="brand">estudy<small>离线版</small></div></header>
+<section class="pwa-status" aria-label="安装与离线状态">
+  <p id="offline-status" role="status" aria-live="polite">尚未缓存 · 首次使用请联网等待“离线已就绪”</p>
+  <p id="installed-status">可添加到 iPhone 主屏幕</p>
+  <details id="install-help"><summary>iPhone 安装 / 离线使用说明</summary>
+    <p>先用 Safari 打开 HTTPS 安装链接，联网等待“离线已就绪”。点 Safari 的“分享” → “添加到主屏幕” → “添加”，再从主屏幕打开。</p>
+    <p>首次缓存完成后可脱离电脑、断网练习。首次缓存必须联网；普通 HTTP、聊天软件文件预览和 file:// 文件不能安装离线 PWA。</p>
+    <p>公开版仅含题库词表。个人词单、成绩请通过“导入桌面记录”在手机本地导入；记录只保存在当前浏览器/主屏幕应用中，重要记录请定期导出备份。</p>
+  </details>
+  <div id="pwa-update" hidden role="status"><span id="pwa-update-message">有新版本。请先完成当前输入，再点启用更新。</span>
+    <button type="button" class="ghost" id="pwa-apply-update">启用更新（不刷新页面）</button>
+  </div>
+</section>
+<div id="storage-warning" class="storage-warning" hidden role="alert"></div>
+<main class="view" id="view"></main>
+<nav class="tabs">
+  <button class="tab is-on" type="button" data-tab="today">今日</button>
+  <button class="tab" type="button" data-tab="drill">练习</button>
+  <button class="tab" type="button" data-tab="wrong">错词</button>
+</nav>
+<div class="toast" id="toast" hidden></div>
+<noscript>请允许 JavaScript 后使用离线学习和安装功能。</noscript>
+</body>
+</html>
